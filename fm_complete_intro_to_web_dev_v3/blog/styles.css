@@ -1,0 +1,22 @@
+.title {
+	background-color: cornflowerblue;
+	font-weight: bold;
+	padding-left: 10px;
+	border: 5px solid black;
+}
+
+.title:hover {
+	border: 5px solid yellow;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.spinny-boi {
+	animation: spin .5s infinite linear;
+	display: inline-block;
+	margin-right: 7px;
+}
