@@ -1,0 +1,91 @@
+* {
+	box-sizing: border-box;
+}
+
+.page {
+	padding: 30px 1.5%;
+	display: grid;
+	grid-template-areas:
+		"header header header"
+		"nav nav nav"
+		"story-1 story-2 story-3"
+		"story-4 story-5 story-5"
+}
+
+.brand-header {
+	grid-area: header;
+}
+
+.brand {
+	margin: 20px 0px 20px 0px;
+	text-align: center;
+	font-size: 60px;
+	font-family: cursive;
+	font-weight: normal;
+	font-family: Snell Roundhand;
+}
+
+.nav-links {
+	grid-area: nav;
+	display: flex;
+	justify-content: space-around;
+	border: 3px solid black;
+	list-style: none;
+	margin: 0px;
+	padding: 30px;
+}
+
+.section-link {
+	font-family: Futura;
+	font-weight: bold;
+	font-size: 30px;
+	text-decoration: none;
+	color: #777;
+}
+
+.section-link:hover {
+	text-decoration: underline;
+}
+
+.story {
+	border-top: 0px;
+	border-bottom: 3px solid black;
+	border-left: 3px solid black;
+	padding: 10px;
+}
+
+.article-title {
+	margin: 25px;
+	text-align: center;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 30px;
+}
+
+.article-img {
+	display: block;
+	margin: 0 auto;
+	max-height: 250px;
+}
+
+.story-1 {
+	grid-area: story-1;
+}
+
+.story-2 {
+	grid-area: story-2;
+}
+
+.story-3 {
+	grid-area: story-3;
+	border-right: 3px solid black;
+}
+
+.story-4 {
+	grid-area: story-4;
+}
+
+.story-5 {
+	grid-area: story-5;
+	border-right: 3px solid black;
+}
