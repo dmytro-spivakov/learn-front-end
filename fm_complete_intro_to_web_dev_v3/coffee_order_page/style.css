@@ -1,0 +1,126 @@
+html {
+	box-sizing: border-box;
+}
+
+* {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Open Sans;
+}
+
+.page {
+	margin: 0px 20%;
+	background-color: #efefef;
+}
+
+/* HEADER */
+.brand-header {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: #43281c;
+	color: #fbf2c0;
+	height: 70px;
+}
+
+.brand {
+	font-size: 12px;
+	font-family: Open Sans;
+	font-weight: bold;
+}
+
+.logo {
+	margin-right: 0.5px;
+	max-height: 25px;
+	vertical-align: middle;
+}
+
+/* MAIN CONTENT */
+/* main grid */
+.main {
+	margin-top: 35px;
+	display: grid;
+	grid-template-areas:
+		"items payment"
+		"checkout checkout";
+}
+
+.items {
+	grid-area: items;
+}
+
+.payment {
+	grid-area: payment;
+}
+
+.checkout {
+	grid-area: checkout;
+	text-align: center;
+}
+
+/* common styling */
+.box {
+	margin: 20px;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 10%);
+	background-color: #ede0d4;
+}
+
+.box-header {
+	font-weight: normal;
+	color: #916a43;
+}
+
+/* order items section */
+.order-item {
+	padding-top: 20px;
+	border-bottom: 2px solid #e4cdb4;
+	display: flex;
+	justify-content: space-between;
+}
+
+.order-item:last-child {
+	border-bottom: 0;
+}
+
+.item-quantity {
+	color: gray;
+}
+
+.item-name {
+	font-weight: bold;
+}
+
+.item-opts {
+	list-style: none;
+	font-size: 85%;
+	color: #8a5f37;
+}
+
+.item-cost {
+	font-weight: bold;
+}
+
+
+
+
+/* paymenty section */
+.payment-flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+
+.card-name {
+	grid-area: card-name;
+	background-color: #ede0d4;
+}
+
+.card-info {
+	grid-area: card-info;
+	background-color: #ede0d4;
+}
