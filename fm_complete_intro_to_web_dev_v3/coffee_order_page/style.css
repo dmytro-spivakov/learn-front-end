@@ -57,7 +57,7 @@ body {
 
 .checkout {
 	grid-area: checkout;
-	text-align: center;
+	margin-top: 70px;
 }
 
 /* common styling */
@@ -161,4 +161,46 @@ body {
 	height: 35px;
 	border-radius: 20px;
 	font-size: 90%;
+}
+
+/* checkout section */
+.checkout-table {
+	width: 30%;
+	margin: 0 auto;
+}
+
+.checkout-table {
+	border-spacing: 15px;
+}
+
+.checkout-table td:first-child {
+	text-align: left;
+}
+
+.checkout-table td:last-child {
+	text-align: right;
+}
+
+.checkout-table tr:last-child {
+	font-weight: bold;
+}
+
+.btn-checkout {
+	display: block;
+	height: 37px;
+	border-radius: 30px;
+	width: 85%;
+	margin: 20px auto;
+	border: none;
+	font-size: 16px;
+
+	background: linear-gradient(to right, #d47717 50%, #deb993 50%);
+	background-size: 200% 100%;
+	background-position: right bottom;
+	transition: all .5s ease-out;
+}
+
+.btn-checkout:hover {
+	color: white;
+	background-position: left bottom;
 }
