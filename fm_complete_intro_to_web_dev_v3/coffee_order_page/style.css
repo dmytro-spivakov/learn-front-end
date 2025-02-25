@@ -72,7 +72,7 @@ body {
 .box-header {
 	font-weight: normal;
 	font-size: 100%;
-	color: #916a43;
+	color: #885a2d;
 }
 
 /* order items section */
@@ -119,9 +119,6 @@ body {
 	font-weight: bold;
 }
 
-
-
-
 /* paymenty section */
 .payment-flex {
 	display: flex;
@@ -138,4 +135,30 @@ body {
 .card-info {
 	grid-area: card-info;
 	background-color: #ede0d4;
+}
+
+.input-group {
+	position: relative;
+}
+
+.input-label {
+	color: #885a2d;
+	font-size: 73%;
+	background-color: #ede0d4;
+	position: absolute;
+	top: -7px;
+	left: 35px;
+}
+
+.input {
+	display: block;
+	background-color: inherit;
+	border: 2px solid #885a2d;
+	padding-top: 2px;
+	padding-left: 13px;
+	margin: 20px auto;
+	width: 95%;
+	height: 35px;
+	border-radius: 20px;
+	font-size: 90%;
 }
