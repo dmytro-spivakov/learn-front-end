@@ -26,7 +26,7 @@ body {
 }
 
 .brand {
-	font-size: 12px;
+	font-size: 18px;
 	font-family: Open Sans;
 	font-weight: bold;
 }
@@ -71,6 +71,7 @@ body {
 
 .box-header {
 	font-weight: normal;
+	font-size: 100%;
 	color: #916a43;
 }
 
@@ -87,7 +88,15 @@ body {
 }
 
 .item-quantity {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 5px;
+	font-size: 90%;
 	color: gray;
+}
+
+.item-info {
+	display: inline-block;
 }
 
 .item-name {
@@ -95,9 +104,15 @@ body {
 }
 
 .item-opts {
+	padding: 0;
+	margin: 10px 0px;
 	list-style: none;
 	font-size: 85%;
 	color: #8a5f37;
+}
+
+.item-opts li {
+	padding: 3px 0px;
 }
 
 .item-cost {
