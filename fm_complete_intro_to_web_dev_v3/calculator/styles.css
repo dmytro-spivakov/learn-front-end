@@ -1,0 +1,61 @@
+:root {
+	--cell-size: 100px;
+}
+
+html {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	box-sizing: inherit;
+}
+
+.page {
+	width: calc(var(--cell-size) * 4);
+	margin: 0 auto;
+}
+
+.display {
+	height: var(--cell-size);
+	padding: calc(var(--cell-size) / 4);
+	background-color: black;
+	color: white;
+	font-size: 30px;
+	font-size: calc(var(--cell-size) * 0.5);
+	text-align: right;
+}
+
+.keyboard-row {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.btn {
+	height: var(--cell-size);
+	width: var(--cell-size);
+	font-size: calc(var(--cell-size) * 0.5);
+	background-color: #d8d9db;
+}
+
+.btn:hover {
+	background-color: #ebebeb;
+}
+
+.btn-double {
+	width: calc(var(--cell-size) * 2);
+}
+
+.btn-triple {
+	width: calc(var(--cell-size) * 3);
+}
+
+.btn-operation {
+	background-color: #df974c;
+}
+
+.btn-operation:hover {
+	background-color: orange;
+}
