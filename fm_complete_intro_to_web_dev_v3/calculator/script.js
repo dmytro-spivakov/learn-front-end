@@ -29,33 +29,41 @@ function handleButtonClick(event) {
 			removeLastDigitFromDisplay();
 			break;
 		case "÷":
-			setOperant1ToCurrentDisplay();
-			setOperation("/");
-			clearDisplay();
+			handleOperation("/");
 			break;
 		case "x":
-			setOperant1ToCurrentDisplay();
-			setOperation("*");
-			clearDisplay();
+			handleOperation("*");
 			break;
 		case "-":
-			setOperant1ToCurrentDisplay();
-			setOperation("-");
-			clearDisplay();
+			handleOperation("-");
 			break;
 		case "+":
-			setOperant1ToCurrentDisplay();
-			setOperation("+");
-			clearDisplay();
+			handleOperation("+");
 			break;
 		case "=":
-			setOperant2ToCurrentDisplay();
-			display.innerHTML = applyCurrentOperation();
-			clearState();
+			applyAndReset();
 			break;
 		default:
 			alert(`Unknown button - ${btnText}`);
 	}
+}
+
+function handleOperation(operationChar) {
+	if (operand1 === undefined) {
+		setOperant1ToCurrentDisplay();
+		setOperation(operationChar);
+		clearDisplay();
+	} else {
+		applyAndReset();
+		setOperant1ToCurrentDisplay();
+		setOperation(operationChar);
+	}
+}
+
+function applyAndReset() {
+	setOperant2ToCurrentDisplay();
+	display.innerHTML = applyCurrentOperation();
+	clearState();
 }
 
 function appendToDisplay(value) {
@@ -71,6 +79,7 @@ function clearDisplay() {
 
 function removeLastDigitFromDisplay() {
 	if (display.innerText.length <= 1) {
+		display.innerHTML = "0";
 		return true;
 	}
 
