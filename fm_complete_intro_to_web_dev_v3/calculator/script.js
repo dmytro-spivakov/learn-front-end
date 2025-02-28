@@ -2,6 +2,7 @@ const display = document.querySelector(".display");
 
 let operandsStack = [];
 let operationsStack = [];
+let flushDisplayOnInput = false;
 
 function handleButtonClick(event) {
 	if (!event.target.matches('button')) {
@@ -50,14 +51,18 @@ function handleButtonClick(event) {
 
 function handleOperation(operation) {
 	operandsStack.push(Number.parseInt(display.innerHTML));
-	resetDisplay();
-
 	// there's nothing to calc with =, it only gets us here
 	if (operation != "=") {
 		operationsStack.push(operation);
 	}
 	evalOperations();
 
+	if (operandsStack.length < 1) {
+		resetDisplay();
+	} else {
+		display.innerHTML = operandsStack[0];
+		flushDisplayOnInput = true;
+	}
 	console.log(operandsStack);
 	console.log(operationsStack);
 }
@@ -102,6 +107,11 @@ function resetDisplay() {
 function appendToDisplay(digit) {
 	if (display.innerHTML === "0") {
 		display.innerHTML = "";
+	}
+
+	if (flushDisplayOnInput) {
+		display.innerHTML = "";
+		flushDisplayOnInput = false;
 	}
 
 	display.innerHTML += digit;
