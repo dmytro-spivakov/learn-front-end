@@ -1,7 +1,7 @@
 const display = document.querySelector(".display");
-let operand1;
-let operand2;
-let operation;
+
+let operandsStack = [];
+let operationsStack = [];
 
 function handleButtonClick(event) {
 	if (!event.target.matches('button')) {
@@ -23,7 +23,7 @@ function handleButtonClick(event) {
 			appendToDisplay(btnText);
 			break;
 		case "C":
-			clearDisplay();
+			clear();
 			break;
 		case "←":
 			removeLastDigitFromDisplay();
@@ -41,90 +41,94 @@ function handleButtonClick(event) {
 			handleOperation("+");
 			break;
 		case "=":
-			applyAndReset();
+			handleOperation("=");
 			break;
 		default:
 			alert(`Unknown button - ${btnText}`);
 	}
 }
 
-function handleOperation(operationChar) {
-	if (operand1 === undefined) {
-		setOperant1ToCurrentDisplay();
-		setOperation(operationChar);
-		clearDisplay();
-	} else {
-		applyAndReset();
-		setOperant1ToCurrentDisplay();
-		setOperation(operationChar);
+function handleOperation(operation) {
+	operandsStack.push(Number.parseInt(display.innerHTML));
+	resetDisplay();
+
+	// there's nothing to calc with =, it only gets us here
+	if (operation != "=") {
+		operationsStack.push(operation);
+	}
+	evalOperations();
+
+	console.log(operandsStack);
+	console.log(operationsStack);
+}
+
+function evalOperations() {
+	while (operandsStack.length > 1) {
+		let op1 = operandsStack.shift();
+		let op2 = operandsStack.shift();
+		let op = operationsStack.shift()
+
+		let result;
+		switch (op) {
+			case "+":
+				result = op1 + op2;
+				break;
+			case "-":
+				result = op1 - op2;
+				break;
+			case "*":
+				result = op1 * op2;
+				break;
+			case "/":
+				result = op1 / op2;
+				break;
+			default:
+				alert(`unknown op ${op}`);
+		}
+		operandsStack.unshift(result);
 	}
 }
 
-function applyAndReset() {
-	setOperant2ToCurrentDisplay();
-	display.innerHTML = applyCurrentOperation();
-	clearState();
+function clear() {
+	operandsStack = [];
+	operationsStack = [];
+	resetDisplay();
 }
 
-function appendToDisplay(value) {
-	if (display.innerHTML === "0") {
-		display.innerHTML = "";
-	}
-	display.innerHTML += value;
-}
-
-function clearDisplay() {
+function resetDisplay() {
 	display.innerHTML = "0";
 }
 
+function appendToDisplay(digit) {
+	if (display.innerHTML === "0") {
+		display.innerHTML = "";
+	}
+
+	display.innerHTML += digit;
+}
+
 function removeLastDigitFromDisplay() {
-	if (display.innerText.length <= 1) {
+	if (display.innerHTML.length <= 1) {
 		display.innerHTML = "0";
-		return true;
+		return;
 	}
 
 	display.innerHTML = display.innerHTML.substring(0, display.innerHTML.length - 1);
 }
 
-function setOperant1ToCurrentDisplay() {
-	operand1 = Number.parseInt(display.innerHTML);
+function flashDisplay() {
+	oldColor = display.style.background;
+	display.style.background = 'blue';
+	setTimeout(() => {
+		display.style.background = oldColor;
+	}, 100);
 }
 
-function setOperant2ToCurrentDisplay() {
-	operand2 = Number.parseInt(display.innerHTML);
+
+function init() {
+	document
+		.querySelector('.keyboard')
+		.addEventListener("click", handleButtonClick);
 }
 
-function setOperation(value) {
-	operation = value;
-}
-
-function applyCurrentOperation() {
-	switch (operation) {
-		case "/":
-			return operand1 / operand2;
-		case "*":
-			return operand1 * operand2;
-		case "+":
-			return operand1 + operand2;
-		case "-":
-			return operand1 - operand2;
-		default:
-			oldColor = display.style.background;
-			display.style.background = 'blue';
-			setTimeout(() => {
-				display.style.background = oldColor;
-			}, 100);
-			setOperant1ToCurrentDisplay();
-			return operand1;
-	};
-}
-
-function clearState() {
-	operand1 = undefined;
-	operand2 = undefined;
-	operation = undefined;
-}
-
-document
-	.querySelector('.keyboard')
-	.addEventListener("click", handleButtonClick);
+init();

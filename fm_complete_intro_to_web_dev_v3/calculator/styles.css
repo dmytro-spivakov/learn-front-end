@@ -2,7 +2,7 @@
 	--cell-size: 100px;
 }
 
-html {
+body {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -22,7 +22,6 @@ html {
 	padding: calc(var(--cell-size) / 4);
 	background-color: black;
 	color: white;
-	font-size: 30px;
 	font-size: calc(var(--cell-size) * 0.5);
 	text-align: right;
 }
