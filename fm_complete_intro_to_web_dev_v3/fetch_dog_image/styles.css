@@ -1,0 +1,42 @@
+html {
+	box-sizing: border-box;
+}
+
+* {
+	box-sizing: inherit;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.page {
+	width: 60%;
+	margin: 30px auto;
+}
+
+.dog-picture-container {
+	min-height: 500px;
+}
+
+.dog-picture-container img {
+	display: block;
+	max-width: 700px;
+	margin: 30px auto;
+}
+
+#btn-fetch-pic {
+	display: block;
+	width: 60%;
+	height: 55px;
+	margin: 30px auto;
+	border: 3px solid lightblue;
+	border-radius: 10px;
+	background-color: white;
+	font-size: 23px;
+}
+
+#btn-fetch-pic:hover {
+	border-color: blue;
+}
