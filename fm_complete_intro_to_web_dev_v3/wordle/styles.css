@@ -45,6 +45,17 @@ body {
 	text-align: center;
 }
 
+.correct-cell {
+	background-color: darkgreen;
+}
+
+.wrong-cell {
+	background-color: darkred;
+}
+
+.mismatched-cell {
+	background-color: orange;
+}
 
 /* stolen from Claude */
 @keyframes shake {
