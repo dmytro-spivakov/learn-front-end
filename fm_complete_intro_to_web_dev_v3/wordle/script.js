@@ -23,15 +23,13 @@ async function handleKeystroke(event) {
 		currentCell.innerHTML = event.key;
 		currentCellIdx += 1;
 	} else if (key == "Enter") {
-		if (isEnd()) {
-			alert("You lost!");
-		}
-
 		const commitRes = await commitRow();
 		if (currentCellIdx > 4 && commitRes) {
 			const cells = rowByIdx(currentRowIdx).querySelectorAll(".game-cell.correct-cell");
 			if (cells.length >= 5) {
 				alert("You won!");
+			} else if (isEnd()) {
+				alert("You lost!");
 			}
 
 			currentRowIdx += 1;
