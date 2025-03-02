@@ -15,8 +15,7 @@ async function handleKeystroke(event) {
 	const key = event.key;
 	if (isALetter(key)) {
 		if (currentCellIdx > 4) {
-			flashErrorOnCurrentRow();
-			return false;
+			currentCellIdx = 4;
 		}
 
 		const currentCell = cellByIdx(currentRowIdx, currentCellIdx);
