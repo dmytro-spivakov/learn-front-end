@@ -59,14 +59,6 @@ nav h1 a {
 	font-family: var(--sans);
 }
 
-nav h1 span {
-	vertical-align: middle;
-}
-
-nav h1 .ghost {
-	font-size: 100%;
-}
-
 nav ul {
 	list-style-type: none;
 	padding: 0;
@@ -78,16 +70,6 @@ nav ul {
 	gap: 2rem;
 }
 
-nav li:first-child {
-	flex-basis: 100%;
-	text-align: center;
-}
-
-nav [class*="fa-"] {
-	font-size: 150%;
-	color: var(--aqua);
-}
-
 nav a {
 	color: var(--white);
 	text-decoration: none;
@@ -96,21 +78,6 @@ nav a {
 
 nav a:hover {
 	color: var(--magenta);
-}
-
-nav [class*="fa-"]:hover {
-	color: var(--magenta);
-}
-
-.button {
-	background-color: var(--magenta);
-	padding: 0.5rem;
-	border-radius: 5px;
-}
-
-.button:hover {
-	color: var(--white);
-	background-color: var(--hotmag);
 }
 
 /* intro styles */
@@ -153,19 +120,4 @@ span.name {
 	display: block;
 	margin: 2rem auto;
 	max-width: 30%;
-}
-
-/* media query */
-/* add it last so it can override all the previously defined styles */
-@media (min-width: 850px) {
-	nav {
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-
-	nav li:first-child {
-		flex-basis: auto;
-		text-align: left;
-		margin-right: auto;
-	}
 }
