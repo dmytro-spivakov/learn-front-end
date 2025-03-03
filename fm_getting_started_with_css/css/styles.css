@@ -10,6 +10,7 @@
 	--font-size: 1.3rem;
 	--mono: "Oxygen mono", monospace;
 	--sans: Oxygen, sans-serif;
+	--max-width: 1200px;
 }
 
 /* border box model: https://css-tricks.com/box-sizing/ */
@@ -104,8 +105,11 @@ nav [class*="fa-"]:hover {
 
 .button {
 	background-color: var(--magenta);
+	color: var(--white);
 	padding: 0.5rem;
 	border-radius: 5px;
+	font-family: var(--mono);
+	text-decoration: none;
 }
 
 .button:hover {
@@ -113,9 +117,21 @@ nav [class*="fa-"]:hover {
 	background-color: var(--hotmag);
 }
 
+/* bg color divs */
+.plum-stripe {
+	background-color: var(--plum);
+}
+
+.gradient {
+	background: linear-gradient(90deg, rgba(255, 23, 228, 1) 0%, rgba(134, 251, 251, 1) 100%);
+	height: 2px;
+}
+
 /* intro styles */
 .intro {
-	padding-bottom: 10rem;
+	padding: 4rem 1rem 10rem 1rem;
+	max-width: var(--max-width);
+	margin: 0 auto;
 }
 
 .intro p {
@@ -135,10 +151,11 @@ span.name {
 	font-size: 4rem;
 }
 
-/* contact me footer */
+/* contact me section */
 .contact {
+	margin: 0 auto;
 	padding: 3rem 0;
-	background-color: var(--plum);
+	width: 400px;
 	text-align: center;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -149,17 +166,34 @@ span.name {
 	font-weight: normal;
 }
 
-.contact p {
-	display: block;
-	margin: 2rem auto;
-	max-width: 30%;
+
+/* footer */
+.footer {
+	text-align: center;
+	padding: 4rem 0;
+}
+
+.footer ul {
+	display: flex;
+	width: 400px;
+	padding: 0;
+	margin: 2.5rem auto;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	list-style-type: none;
+}
+
+.footer [class*="fa-"] {
+	font-size: 3rem;
 }
 
 /* media query */
 /* add it last so it can override all the previously defined styles */
 @media (min-width: 850px) {
 	nav {
-		max-width: 1200px;
+		max-width: var(--max-width);
 		margin: 0 auto;
 	}
 
