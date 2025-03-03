@@ -159,6 +159,7 @@ span.name {
 .contact {
 	margin: 0 auto;
 	padding: 3rem 0;
+	padding-bottom: 4rem;
 	width: 400px;
 	text-align: center;
 	font-size: 1rem;
@@ -168,6 +169,11 @@ span.name {
 .contact h2 {
 	font-family: var(--mono);
 	font-weight: normal;
+}
+
+.contact p {
+	display: inline-block;
+	padding-bottom: 1.5rem;
 }
 
 
