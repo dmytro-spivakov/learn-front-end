@@ -118,8 +118,12 @@ nav [class*="fa-"]:hover {
 }
 
 /* bg color divs */
-.plum-stripe {
+.section-plum {
 	background-color: var(--plum);
+}
+
+.section-dkblue {
+	background-color: var(--dkblue);
 }
 
 .gradient {
@@ -189,8 +193,84 @@ span.name {
 	font-size: 3rem;
 }
 
+/* project section */
+#projects {
+	padding: 4rem 1rem;
+}
+
+#projects h2 {
+	font-size: 2.5rem;
+	margin-bottom: calc(2.5rem * 1.5);
+}
+
+#projects h3 {
+	color: var(--aqua);
+}
+
+#projects h4 {
+	font-size: 1rem;
+	font-family: var(--mono);
+	margin: 0;
+}
+
+.blackbox {
+	background-color: var(--black);
+	padding: 1rem;
+	border-radius: 10px;
+	color: var(--white);
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+#projects ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	gap: 1rem;
+	font-size: 1rem;
+}
+
+#projects img {
+	margin: 2rem 0 4rem 0;
+	border-left: 1px solid var(--aqua);
+	border-top: 1px solid var(--aqua);
+	border-radius: 25px;
+	padding: 1rem;
+}
+
+img {
+	width: 100%;
+}
+
 /* media query */
 /* add it last so it can override all the previously defined styles */
+@media (min-width: 550px) {
+	article {
+		display: grid;
+		grid-template-columns: repeat(10, 1fr);
+		gap: 1rem;
+	}
+
+	#projects img {
+		grid-column: 1/6;
+		grid-row: 1/2;
+	}
+
+	.text {
+		grid-column: 5/11;
+		grid-row: 1/2;
+		order: 2;
+		text-align: right;
+	}
+
+	#projects ul {
+		justify-content: flex-end;
+	}
+}
+
 @media (min-width: 850px) {
 	nav {
 		max-width: var(--max-width);
