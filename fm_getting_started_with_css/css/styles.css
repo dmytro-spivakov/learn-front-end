@@ -259,6 +259,11 @@ img {
 		grid-row: 1/2;
 	}
 
+	#projects article:nth-child(odd) img {
+		grid-column: 5/11;
+		grid-row: 1/2;
+	}
+
 	.text {
 		grid-column: 5/11;
 		grid-row: 1/2;
@@ -266,8 +271,19 @@ img {
 		text-align: right;
 	}
 
+	#projects article:nth-child(odd) .text {
+		grid-column: 1/6;
+		grid-row: 1/2;
+		order: 1;
+		text-align: left;
+	}
+
 	#projects ul {
 		justify-content: flex-end;
+	}
+
+	#projects article:nth-child(odd) ul {
+		justify-content: flex-start;
 	}
 }
 
