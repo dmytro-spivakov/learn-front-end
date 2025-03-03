@@ -201,6 +201,8 @@ span.name {
 
 /* project section */
 #projects {
+	max-width: var(--max-width);
+	margin: 0 auto;
 	padding: 4rem 1rem;
 }
 
@@ -237,6 +239,7 @@ span.name {
 	justify-content: flex-start;
 	gap: 1rem;
 	font-size: 1rem;
+	line-height: 2;
 }
 
 #projects img {
