@@ -70,22 +70,35 @@ console.log(`mapWithInput after: ${mapWithInput}`);
 
 // Challenge 6
 function reduce(array, callback, initialValue) {
+	let result = initialValue;
+	for (el of array) {
+		result = callback(result, el);
+	}
 
+	return result
 }
+const reduceInput = [1, 2, 3, 4, 5, 6];
+console.log(`reduce([1,2,3,4,5,6], (a,b) => a + b, 10)=${reduce(reduceInput, (a, b) => a + b, 10)}`);
 
 
 // Challenge 7
 function intersection(arrays) {
-
+	return reduce(arrays, function(a, b) { return a.filter(el => b.includes(el)) }, arrays[0]);
 }
+const intersectionInput = [
+	[1, 2, 3],
+	[3, 4, 5, 6, 2],
+	[1, 2, 7, 8],
+	[7, 8, 2, 9, 10]
+]
+console.log(`intersection()=${intersection(intersectionInput)}`);
 
-// console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
+console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
 // should log: [5, 15]
 
 
 // Challenge 8
 function union(arrays) {
-
 }
 
 // console.log(union([[5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]]));
