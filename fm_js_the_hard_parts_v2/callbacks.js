@@ -151,49 +151,79 @@ console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.to
 
 // Challenge 11
 function objectFilter(obj, callback) {
+	const newObj = {};
 
+	for (key in obj) {
+		if (obj[key] == callback(key)) {
+			newObj[key] = obj[key];
+		}
+	}
+
+	return newObj;
 }
 
-// const cities = {
-// London: 'LONDON',
-// LA: 'Los Angeles',
-// Paris: 'PARIS',
-// };
-// console.log(objectFilter(cities, city => city.toUpperCase())) // Should log { London: 'LONDON', Paris: 'PARIS'}
+const cities = {
+	London: 'LONDON',
+	LA: 'Los Angeles',
+	Paris: 'PARIS',
+};
+console.log(objectFilter(cities, city => city.toUpperCase())) // Should log { London: 'LONDON', Paris: 'PARIS'}
 
 
 // Challenge 12
 function majority(array, callback) {
+	const counter = {
+		true: 0,
+		false: 0,
+	};
 
+	for (el of array) {
+		const res = callback(el);
+		counter[res] += 1;
+	}
+
+	return counter[true] > counter[false];
 }
 
 // /*** Uncomment these to check your work! ***/
-// const isOdd = function(num) { return num % 2 === 1; };
-// console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
-// console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
+const isOdd1 = function(num) { return num % 2 === 1; };
+console.log(majority([1, 2, 3, 4, 5], isOdd1)); // should log: true
+console.log(majority([2, 3, 4, 5], isOdd1)); // should log: false
 
 
 // Challenge 13
 function prioritize(array, callback) {
-
+	return array.toSorted(x => callback(x) ? -1 : 1);
 }
 
 // /*** Uncomment these to check your work! ***/
-// const startsWithS = function(str) { return str[0] === 's' || str[0] === 'S'; };
-// console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); // should log:
-['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
+const startsWithS = function(str) { return str[0] === 's' || str[0] === 'S'; };
+console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); // should log:
+// ['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
 
 
 // Challenge 14
 function countBy(array, callback) {
+	const obj = {};
 
+	for (let el of array) {
+		const res = callback(el);
+
+		if (Object.hasOwn(obj, res)) {
+			obj[res] += 1;
+		} else {
+			obj[res] = 1;
+		}
+	}
+
+	return obj;
 }
 
 // /*** Uncomment these to check your work! ***/
-// console.log(countBy([1, 2, 3, 4, 5], function(num) {
-// if (num % 2 === 0) return 'even';
-// else return 'odd';
-// })); // should log: { odd: 3, even: 2 }
+console.log(countBy([1, 2, 3, 4, 5], function(num) {
+	if (num % 2 === 0) return 'even';
+	else return 'odd';
+})); // should log: { odd: 3, even: 2 }
 
 
 // Challenge 15
